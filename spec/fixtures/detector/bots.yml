@@ -94,6 +94,15 @@
       name: Analytics SEO
       url: http://www.analyticsseo.com
 - 
+  user_agent: ApacheBench/2.3
+  bot:
+    name: ApacheBench
+    category: Benchmark
+    url: https://httpd.apache.org/docs/2.4/programs/ab.html
+    producer:
+      name: The Apache Software Foundation
+      url: http://www.apache.org/foundation/
+- 
   user_agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_10 _1) AppleWebKit/600.2.5 (KHTML, like Gecko) Version/8.0.2 Safari/600.2.5 (Applebot/0.1; +http://www.apple.com/go/applebot)
   bot:
     name: Applebot
@@ -136,12 +145,12 @@
     category: Crawler
     url: http://law.di.unimi.it/BUbiNG.html
     producer:
-      name:
-      url:
+      name: The Laboratory for Web Algorithmics (LAW)
+      url: 'http://law.di.unimi.it/software.php#buging'
 - 
-  user_agent: Backlink-Ceck.de (+http://www.backlink-check.de/bot.html)
+  user_agent: Backlink-Check.de (+http://www.backlink-check.de/bot.html)
   bot:
-    name: Backlink-Ceck.de
+    name: Backlink-Check.de
     category: Crawler
     url: http://www.backlink-check.de/bot.html
     producer:
@@ -301,6 +310,15 @@
       name: Microsoft Corporation
       url: http://www.microsoft.com
 - 
+  user_agent: bitlybot/3.0
+  bot:
+    name: BitlyBot
+    category: Crawler
+    url: https://bitly.com
+    producer:
+      name: Bitly, Inc.
+      url: https://bitly.com
+- 
   user_agent: Mozilla/5.0 (compatible; Blekkobot; ScoutJet; +http://blekko.com/about/blekkobot)
   bot:
     name: Blekkobot
@@ -373,6 +391,15 @@
       name: career-x GmbH
       url: http://www.career-x.de
 - 
+  user_agent: Castro 2, Episode Duration Lookup
+  bot:
+    name: Castro 2
+    category: Service Agent
+    url: http://supertop.co/castro/
+    producer:
+      name: Supertop
+      url: http://supertop.co
+- 
   user_agent: Cliqzbot/0.1 (+http://cliqz.com/company/cliqzbot)
   bot:
     name: Cliqzbot
@@ -408,6 +435,24 @@
     producer:
       name: Cốc Cốc
       url: http://coccoc.com/
+- 
+  user_agent: Datadog Agent/5.10.1
+  bot:
+    name: Datadog Agent
+    url: https://github.com/DataDog/dd-agent
+    category: Site Monitor
+    producer:
+      name: Datadog
+      url: https://www.datadoghq.com/
+- 
+  user_agent: Mozilla/5.0 (compatible; Dataprovider/6.92; +https://www.dataprovider.com/)
+  bot:
+    name: Dataprovider
+    category: Crawler
+    url:
+    producer:
+      name: Dataprovider B.V.
+      url: https://www.dataprovider.com/
 - 
   user_agent: Mozilla/5.0 (compatible; MSIE or Firefox mutant; not on Windows server;) Daumoa/4.0;
   bot:
@@ -471,6 +516,15 @@
     producer:
       name: SEOmoz, Inc.
       url: http://moz.com/
+- 
+  user_agent: Mozilla/5.0 (compatible; DuckDuckGo-Favicons-Bot/1.0; +http://duckduckgo.com)
+  bot:
+    name: DuckDuckGo Bot
+    category: Search bot
+    url: https://duckduckgo.com/duckduckbot
+    producer:
+      name: DuckDuckGo
+      url: https://duckduckgo.com/
 - 
   user_agent: EMail Exractor
   bot:
@@ -643,7 +697,33 @@
       name:
       url:
 - 
+  user_agent: Mozilla/5.0 (compatible; FlipboardProxy/1.2; +http://flipboard.com/browserproxy)
+  bot:
+    name: Flipboard
+    url: http://flipboard.com/browserproxy
+    category: Feed Fetcher
+    producer:
+      name: Flipboard
+      url: http://flipboard.com/
+- 
+  user_agent: Mozilla/5.0 (compatible; FlipboardRSS/1.2; +http://flipboard.com/browserproxy)
+  bot:
+    name: Flipboard
+    url: http://flipboard.com/browserproxy
+    category: Feed Fetcher
+    producer:
+      name: Flipboard
+      url: http://flipboard.com/
+- 
+  user_agent: COMODO SSL Checker
+  bot:
+    name: Generic Bot
+- 
   user_agent: niki-bot
+  bot:
+    name: Generic Bot
+- 
+  user_agent: PHPCrawl
   bot:
     name: Generic Bot
 - 
@@ -659,6 +739,15 @@
     producer:
       name: Genieo
       url: http://www.genieo.com
+- 
+  user_agent: GigablastOpenSource/1.0
+  bot:
+    name: Gigablast
+    category: Search bot
+    url: https://github.com/gigablast/open-source-search-engine
+    producer:
+      name: Matt Wells
+      url: http://www.gigablast.com/faq.html
 - 
   user_agent: Mozilla/5.0 (compatible; Gluten Free Crawler/1.0; +http://glutenfreepleasure.com/)
   bot:
@@ -701,6 +790,15 @@
     name: Google Partner Monitoring
     category: Site Monitor
     url:
+    producer:
+      name: Google Inc.
+      url: http://www.google.com
+- 
+  user_agent: Google-Structured-Data-Testing-Tool +https://search.google.com/structured-data/testing-tool)
+  bot:
+    name: Google Structured Data Testing Tool
+    category: Validator
+    url: https://search.google.com/structured-data/testing-tool
     producer:
       name: Google Inc.
       url: http://www.google.com
@@ -751,6 +849,15 @@
       url: http://www.google.com
 - 
   user_agent: Feedfetcher-Google; (+http://www.google.com/feedfetcher.html; 375 subscribers; feed-id=15381863289700640853)
+  bot:
+    name: Googlebot
+    category: Search bot
+    url: http://www.google.com/bot.html
+    producer:
+      name: Google Inc.
+      url: http://www.google.com
+- 
+  user_agent: Google-Adwords-Instant (+http://www.google.com/adsbot.html)
   bot:
     name: Googlebot
     category: Search bot
@@ -903,6 +1010,24 @@
       name: Google Inc.
       url: http://www.google.com
 - 
+  user_agent: Mozilla/5.0 (compatible; GrapeshotCrawler/2.0; +https://www.grapeshot.com/crawler/)
+  bot:
+    name: Grapeshot
+    category: Crawler
+    url: https://www.grapeshot.com/crawler
+    producer:
+      name: Grapeshot
+      url: https://www.grapeshot.com
+- 
+  user_agent: Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.1.4 (KHTML, like Gecko) Version/8.0 Mobile/12F70 Safari/600.1. 4 (compatible; GrapeshotCrawler/2.0; +https://www.grapeshot.com/crawler/)
+  bot:
+    name: Grapeshot
+    category: Crawler
+    url: https://www.grapeshot.com/crawler
+    producer:
+      name: Grapeshot
+      url: https://www.grapeshot.com
+- 
   user_agent: HTTPMon/1.0b (http://www.httpmon.com)
   bot:
     name: HTTPMon
@@ -1011,6 +1136,15 @@
       name: Microsoft Corporation
       url: http://www.microsoft.com
 - 
+  user_agent: IP-Guide.com Crawler/1.0 (https://ip-guide.com)
+  bot:
+    name: IP-Guide Crawler
+    category: Crawler
+    url:
+    producer:
+      name:
+      url: https://ip-guide.com
+- 
   user_agent: kouio.com RSS reader
   bot:
     name: Kouio
@@ -1045,6 +1179,15 @@
     producer:
       name:
       url:
+- 
+  user_agent: "Mozilla/5.0 (compatible; Let's Encrypt validation server; +https://www.letsencrypt.org)"
+  bot:
+    name: "Let's Encrypt Validation"
+    category: Service Agent
+    url: https://letsencrypt.org/how-it-works/
+    producer:
+      name: "Let's Encrypt"
+      url: https://letsencrypt.org
 - 
   user_agent: linkdex.com/v2.0 and linkdex.com/v2.1
   bot:
@@ -1136,6 +1279,15 @@
       name: Meanpath
       url: http://www.meanpath.com
 - 
+  user_agent: Mozilla/5.0 (compatible; MetaJobBot; http://www.metajob.de/crawler)
+  bot:
+    name: MetaJobBot
+    category: Crawler
+    url: http://www.metajob.at/the/crawler
+    producer:
+      name: MetaJob
+      url: http://www.metajob.at
+- 
   user_agent: Mozilla/5.0 (compatible; MixrankBot; crawler@mixrank.com)
   bot:
     name: Mixrank Bot
@@ -1143,6 +1295,15 @@
     url: http://mixrank.com
     producer:
       name: Online Media Group, Inc.
+      url:
+- 
+  user_agent: Mnogosearch-3.1.21
+  bot:
+    name: Mnogosearch
+    category: Search bot
+    url: http://www.mnogosearch.org/
+    producer:
+      name: Lavtech.Com Corp.
       url:
 - 
   user_agent: Mozilla/5.0 (compatible; MojeekBot/0.6; http://www.mojeek.com/bot.html)
@@ -1162,6 +1323,24 @@
     producer:
       name: Monitor.Us
       url: http://www.monitor.us
+- 
+  user_agent: munin/2.0.30-1 (libwww-perl/6.15)
+  bot:
+    name: Munin
+    category: Site Monitor
+    url: http://munin-monitoring.org/
+    producer:
+      name: Munin
+      url: http://munin-monitoring.org/
+- 
+  user_agent: munin/http_loadtime
+  bot:
+    name: Munin
+    category: Site Monitor
+    url: http://munin-monitoring.org/
+    producer:
+      name: Munin
+      url: http://munin-monitoring.org/
 - 
   user_agent: nlcrawler/1.0 (+http://northernlight.com/)
   bot:
@@ -1186,6 +1365,24 @@
     name: NetLyzer FastProbe
 - 
   user_agent: Mozilla/4.0 (compatible; Netcraft Web Server Survey)
+  bot:
+    name: Netcraft Survey Bot
+    category: Search bot
+    url:
+    producer:
+      name: Netcraft
+      url: http://www.netcraft.com
+- 
+  user_agent: Mozilla/5.0 (compatible; NetcraftSurveyAgent/1.0; +info@netcraft.com)
+  bot:
+    name: Netcraft Survey Bot
+    category: Search bot
+    url:
+    producer:
+      name: Netcraft
+      url: http://www.netcraft.com
+- 
+  user_agent: 'Netcraft SSL Server Survey - contact info@netcraft.com'
   bot:
     name: Netcraft Survey Bot
     category: Search bot
@@ -1256,6 +1453,15 @@
     producer:
       name:
       url:
+- 
+  user_agent: Mozilla/5.0 (compatible; Nmap Scripting Engine; https://nmap.org/book/nse.html)
+  bot:
+    name: Nmap
+    category: Security Checker
+    url: https://nmap.org/book/nse.html
+    producer:
+      name: Nmap
+      url: https://nmap.org/
 - 
   user_agent: 5acd734a-1ed3-4a17-ad9d-0b09ae7bc2d2/Nutch-1.7
   bot:
@@ -1509,6 +1715,24 @@
       name: Pinterest
       url: http://www.pinterest.com/
 - 
+  user_agent: PocketParser/2.0 (+https://getpocket.com/pocketparser_ua)
+  bot:
+    name: PocketParser
+    category: Read-it-later Service
+    url: https://getpocket.com/pocketparser_ua
+    producer:
+      name: Pocket
+      url: https://getpocket.com/
+- 
+  user_agent: PritTorrent/1.0
+  bot:
+    name: PritTorrent
+    category: Crawler
+    url: https://github.com/astro/prittorrent
+    producer:
+      name: Bitlove
+      url: http://bitlove.org/
+- 
   user_agent: QuerySeekerSpider ( http://queryseeker.com/bot.html )
   bot:
     name: QuerySeekerSpider
@@ -1518,6 +1742,15 @@
       name: QueryEye Inc.
       url: http://queryeye.com
 - 
+  user_agent: 'Mozilla/5.0 (compatible; Qwantify/2.2w; +https://www.qwant.com/)/*'
+  bot:
+    name: Qwantify
+    category: Crawler
+    url: https://www.qwant.com/
+    producer:
+      name: Qwant Corporation
+      url: https://www.qwant.com/
+- 
   user_agent: ROI Hunter; https://api-dev.roihunter.com
   bot:
     name: ROI Hunter
@@ -1526,6 +1759,12 @@
     producer:
       name: Roihunter a.s.
       url: http://roihunter.com/
+- 
+  user_agent: Rainmeter WebParser plugin
+  bot:
+    name: Rainmeter
+    category: Crawler
+    url: https://www.rainmeter.net
 - 
   user_agent: Mozilla/5.0 (compatible; redditbot/1.0; +http://www.reddit.com/feedback)
   bot:
@@ -1581,6 +1820,24 @@
       name: SISTRIX GmbH
       url: http://www.sistrix.de
 - 
+  user_agent: SSL Labs (https://www.ssllabs.com/about/assessment.html)
+  bot:
+    name: SSL Labs
+    category: Validator
+    url: https://www.ssllabs.com/about/assessment.html
+    producer:
+      name: SSL Labs
+      url: https://www.ssllabs.com/about/assessment.html
+- 
+  user_agent: SafeDNSBot (https://www.safedns.com/searchbot)
+  bot:
+    name: SafeDNSBot
+    category: Crawler
+    url: https://www.safedns.com/searchbot
+    producer:
+      name: SafeDNS, Inc.
+      url: https://www.safedns.com/
+- 
   user_agent: Scrapy/1.0.3.post6+g2d688cd (+http://scrapy.org)
   bot:
     name: Scrapy
@@ -1622,6 +1879,12 @@
     producer:
       name: Sensika
       url: http://sensika.com
+- 
+  user_agent: Mozilla/5.0 (compatible; seoscanners.net/1; +spider@seoscanners.net)
+  bot:
+    name: Seoscanners.net
+    category: Crawler
+    url:
 - 
   user_agent: Server Density Service Monitoring v2
   bot:
@@ -1716,6 +1979,15 @@
     producer:
       name: Site24x7
       url: https://www.site24x7.com
+- 
+  user_agent: sixy.ch/1.0
+  bot:
+    name: Sixy.ch
+    category: Site Monitor
+    url: http://sixy.ch
+    producer:
+      name: Manuel Kasper
+      url: https://neon1.net/
 - 
   user_agent: Mozilla/5.0 (Windows NT 6.1; WOW64) SkypeUriPreview Preview/0.5
   bot:
@@ -1911,6 +2183,15 @@
       name: Profound Networks
       url: http://www.profound.net
 - 
+  user_agent: UniversalFeedParser/5.2.1 +https://code.google.com/p/feedparser/
+  bot:
+    name: UniversalFeedParser
+    category: Feed Fetcher
+    url: https://github.com/kurtmckee/feedparser
+    producer:
+      name: Kurt McKee
+      url: https://github.com/kurtmckee
+- 
   user_agent: Mozilla/5.0+(compatible; UptimeRobot/2.0; http://www.uptimerobot.com/)
   bot:
     name: Uptime Robot
@@ -1919,6 +2200,15 @@
     producer:
       name: Uptime Robot
       url: http://uptimerobot.com
+- 
+  user_agent: Mozilla/5.0 (compatible; Uptimebot/1.0; +http://www.uptime.com/uptimebot)
+  bot:
+    name: Uptimebot
+    category: Site Monitor
+    url: https://uptime.com/uptimebot
+    producer:
+      name: Uptime
+      url: https://uptime.com
 - 
   user_agent: Mozilla/5.0 (compatible; VSMCrawler; http://www.visualsitemapper.com/crawler/)
   bot:
@@ -2416,3 +2706,18 @@
     producer:
       name: reddit inc.
       url: http://www.reddit.com
+- 
+  user_agent: masscan/1.0 (https://github.com/robertdavidgraham/masscan)
+  bot:
+    name: masscan
+    category: Crawler
+    url: https://github.com/robertdavidgraham/masscan
+    producer:
+      name: Robert Graham
+      url: https://github.com/robertdavidgraham
+- 
+  user_agent: Mozilla/5.0 zgrab/0.x
+  bot:
+    name: zgrab
+    category: Security Checker
+    url: https://github.com/zmap/zgrab

@@ -39,8 +39,7 @@ describe DeviceDetector do
                 expected_type = f["device"]["type"]
                 actual_type = detector.device_type
                 if expected_type != actual_type
-                  # puts "\n", f.inspect, expected_type, actual_type, detector.device_name, regex_meta.inspect
-                  # debugger
+                  # puts "\n", f.inspect, expected_type, actual_type, detector.device_name
                   # detector.device_type
                 end
                 assert_equal expected_type, actual_type, "failed device type detection"
