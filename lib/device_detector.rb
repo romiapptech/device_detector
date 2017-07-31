@@ -1,16 +1,16 @@
 require 'yaml'
 
-require 'device_detector/version'
-require 'device_detector/metadata_extractor'
-require 'device_detector/version_extractor'
-require 'device_detector/model_extractor'
-require 'device_detector/name_extractor'
-require 'device_detector/memory_cache'
-require 'device_detector/parser'
-require 'device_detector/bot'
-require 'device_detector/client'
-require 'device_detector/device'
-require 'device_detector/os'
+require_relative './device_detector/version'
+require_relative './device_detector/metadata_extractor'
+require_relative './device_detector/version_extractor'
+require_relative './device_detector/model_extractor'
+require_relative './device_detector/name_extractor'
+require_relative './device_detector/regex_cache'
+require_relative './device_detector/parser'
+require_relative './device_detector/bot'
+require_relative './device_detector/client'
+require_relative './device_detector/device'
+require_relative './device_detector/os'
 
 class DeviceDetector
 
@@ -120,12 +120,12 @@ class DeviceDetector
   class << self
 
     class Configuration
-      attr_accessor :max_cache_keys
+      def max_cache_keys=(_value)
+        puts "The config max_cache_keys is deprecated and has no effect."
+      end
 
       def to_hash
-        {
-          max_cache_keys: max_cache_keys
-        }
+        {}
       end
     end
 
@@ -134,7 +134,7 @@ class DeviceDetector
     end
 
     def cache
-      @cache ||= MemoryCache.new(config.to_hash)
+      @cache ||= RegexCache.new(config.to_hash)
     end
 
     def configure(&block)
@@ -190,5 +190,4 @@ class DeviceDetector
   def build_regex(src)
     Regexp.new('(?:^|[^A-Z0-9\_\-])(?:' + src + ')', Regexp::IGNORECASE)
   end
-
 end

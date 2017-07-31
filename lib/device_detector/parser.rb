@@ -4,15 +4,11 @@ class DeviceDetector
     ROOT = File.expand_path('../../..', __FILE__)
 
     def name
-      from_cache(['name', self.class.name, user_agent]) do
-        NameExtractor.new(user_agent, regex_meta).call
-      end
+      NameExtractor.new(user_agent, regex_meta).call
     end
 
     def full_version
-      from_cache(['full_version', self.class.name, user_agent]) do
-        VersionExtractor.new(user_agent, regex_meta).call
-      end
+      VersionExtractor.new(user_agent, regex_meta).call
     end
 
     private
@@ -22,9 +18,7 @@ class DeviceDetector
     end
 
     def matching_regex
-      from_cache([self.class.name, user_agent]) do
-        regexes.find { |r| user_agent =~ r[:regex] }
-      end
+      regexes.find { |r| user_agent =~ r[:regex] }
     end
 
     def regexes
@@ -77,6 +71,5 @@ class DeviceDetector
     def from_cache(key)
       DeviceDetector.cache.get_or_set(key) { yield }
     end
-
   end
 end

@@ -27,15 +27,13 @@ class DeviceDetector
     private
 
     def os_info
-      from_cache(['os_info', self.class.name, user_agent]) do
-        os_name = NameExtractor.new(user_agent, regex_meta).call
-        if os_name && short = DOWNCASED_OPERATING_SYSTEMS[os_name.downcase]
-          os_name = OPERATING_SYSTEMS[short]
-        else
-          short = 'UNK'
-        end
-        { name: os_name, short: short, family: FAMILY_TO_OS[short] }
+      os_name = NameExtractor.new(user_agent, regex_meta).call
+      if os_name && short = DOWNCASED_OPERATING_SYSTEMS[os_name.downcase]
+        os_name = OPERATING_SYSTEMS[short]
+      else
+        short = 'UNK'
       end
+      { name: os_name, short: short, family: FAMILY_TO_OS[short] }
     end
 
     DESKTOP_OSS = Set.new(['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'])

@@ -1,8 +1,8 @@
 require_relative '../spec_helper'
 
-describe DeviceDetector::MemoryCache do
+describe DeviceDetector::RegexCache do
 
-  let(:subject) { DeviceDetector::MemoryCache.new(config) }
+  let(:subject) { DeviceDetector::RegexCache.new(config) }
 
   let(:config) { {} }
 
@@ -94,21 +94,6 @@ describe DeviceDetector::MemoryCache do
         subject.data[key].must_equal true
       end
 
-    end
-
-  end
-
-  describe 'cache purging' do
-
-    let(:config) { { max_cache_keys: 3 } }
-
-    it 'purges the cache when key size arrives at max' do
-      subject.set('1', 'foo')
-      subject.set('2', 'bar')
-      subject.set('3', 'baz')
-      subject.set('4', 'boz')
-
-      subject.data.keys.size.must_equal 3
     end
 
   end

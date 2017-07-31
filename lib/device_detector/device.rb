@@ -48,19 +48,17 @@ class DeviceDetector
     end
 
     def matching_regex
-      from_cache([self.class.name, user_agent]) do
-        regex_list = hbbtv? ? regexes_for_hbbtv : regexes_other
-        regex = regex_list.find { |r| user_agent =~ r[:regex] }
-        if regex && regex[:models]
-          model_regex = regex[:models].find { |m| user_agent =~ m[:regex]}
-          if model_regex
-            regex = regex.merge(:regex_model => model_regex[:regex], :model => model_regex[:model], :brand => model_regex[:brand])
-            regex[:device] = model_regex[:device] if model_regex.key?(:device)
-            regex.delete(:models)
-          end
+      regex_list = hbbtv? ? regexes_for_hbbtv : regexes_other
+      regex = regex_list.find { |r| user_agent =~ r[:regex] }
+      if regex && regex[:models]
+        model_regex = regex[:models].find { |m| user_agent =~ m[:regex]}
+        if model_regex
+          regex = regex.merge(:regex_model => model_regex[:regex], :model => model_regex[:model], :brand => model_regex[:brand])
+          regex[:device] = model_regex[:device] if model_regex.key?(:device)
+          regex.delete(:models)
         end
-        regex
       end
+      regex
     end
 
     def hbbtv?
