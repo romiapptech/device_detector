@@ -31,12 +31,12 @@ class DeviceDetector
 
     def filepaths
       filenames.map do |filename|
-        [ filename.to_sym, File.join(ROOT, 'regexes', filename) ]
+        [ filename.to_sym, File.join(ROOT, 'regexes'.freeze, filename) ]
       end
     end
 
     def regexes_for(file_paths)
-      from_cache(['regexes', self.class]) do
+      from_cache(['regexes'.freeze, self.class]) do
         load_regexes(file_paths).flat_map { |path, regex| parse_regexes(path, regex) }
       end
     end

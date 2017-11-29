@@ -125,32 +125,7 @@ HTC:
 Microsoft:
   regex: 'KIN\.(One|Two)|RM-(?:1031|106[57]|109[02]|1099|1109|1114|1127|1141|1154)|Microsoft; Lumia'
   device: 'smartphone'
-  models:
-    - regex: 'KIN\.(One|Two)'
-      device: 'feature phone'
-      model: 'Kin $1'
-
-    - regex: 'RM-1031'
-      model: 'Lumia 532'
-    - regex: 'RM-106[57]'
-      model: 'Lumia 640 XL'
-    - regex: 'RM-109[02]'
-      model: 'Lumia 535'
-    - regex: 'RM-1099'
-      model: 'Lumia 430'
-    - regex: 'RM-1109'
-      model: 'Lumia 640'
-    - regex: 'RM-1114'
-      model: 'Lumia 435'
-    - regex: 'RM-1127'
-      model: 'Lumia 550'
-    - regex: 'RM-1141'
-      model: 'Lumia 540'
-    - regex: 'RM-1154'
-      model: 'Lumia 650'
-
-    - regex: 'Microsoft; Lumia ([^;/)]+)[;/)]'
-      model: 'Lumia $1'
+  
 
 # NOKIA
 Nokia:
