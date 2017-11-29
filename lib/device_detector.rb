@@ -23,7 +23,7 @@ class DeviceDetector
   end
 
   def os_family
-    os.name
+    os.family
   end
 
   def os_full_version
