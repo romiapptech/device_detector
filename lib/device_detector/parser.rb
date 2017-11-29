@@ -42,7 +42,7 @@ class DeviceDetector
     end
 
     def load_regexes(file_paths)
-      puts "o no i'm hit!"
+      #puts "o no i'm hit!"
       file_paths.map { |path, full_path| [path, symbolize_keys!(YAML.load_file(full_path))] }
     end
 
