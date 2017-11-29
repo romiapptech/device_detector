@@ -28,7 +28,11 @@ class DeviceDetector
 
     def os_info
       os_name = NameExtractor.new(user_agent, regex_meta).call
-      short = DOWNCASED_OPERATING_SYSTEMS[os_name.downcase!] if os_name
+      if os_name
+        os_name.downcase!
+        short = DOWNCASED_OPERATING_SYSTEMS[os_name]
+      end
+      
       short = 'UNK'.freeze if short == nil
       { name: os_name, short: short, family: FAMILY_TO_OS[short] }
     end
