@@ -7,7 +7,6 @@ require_relative './device_detector/model_extractor'
 require_relative './device_detector/name_extractor'
 require_relative './device_detector/regex_cache'
 require_relative './device_detector/parser'
-require_relative './device_detector/client'
 require_relative './device_detector/device'
 require_relative './device_detector/os'
 
@@ -17,14 +16,6 @@ class DeviceDetector
 
   def initialize(user_agent)
     @user_agent = user_agent
-  end
-
-  def name
-    client.name
-  end
-
-  def full_version
-    client.full_version
   end
 
   def os_name
@@ -37,10 +28,6 @@ class DeviceDetector
 
   def device_name
     device.name
-  end
-
-  def device_brand
-    device.brand
   end
 
   def device_type
@@ -109,10 +96,6 @@ class DeviceDetector
   end
 
   private
-
-  def client
-    @client ||= Client.new(user_agent)
-  end
 
   def device
     @device ||= Device.new(user_agent)

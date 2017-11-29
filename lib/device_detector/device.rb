@@ -13,10 +13,6 @@ class DeviceDetector
       regex_meta[:device]
     end
 
-    def brand
-      regex_meta[:brand]
-    end
-
     private
 
     # The order of files needs to be the same as the order of device
