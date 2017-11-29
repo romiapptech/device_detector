@@ -47,11 +47,11 @@ class DeviceDetector
     t = device.type
 
     if t.nil? && android_tablet_fragment? || opera_tablet?
-      t = 'tablet'
+      t = 'tablet'.freeze
     end
 
     if t.nil? && android_mobile_fragment?
-      t = 'smartphone'
+      t = 'smartphone'.freeze
     end
 
     # Android up to 3.0 was designed for smartphones only. But as 3.0,
@@ -62,17 +62,17 @@ class DeviceDetector
     # So were are expecting that all devices running Android < 2 are
     # smartphones Devices running Android 3.X are tablets. Device type
     # of Android 2.X and 4.X+ are unknown
-    if t.nil? && os.short_name == 'AND' && os.full_version && !os.full_version.empty?
-      if os.full_version < '2'
-        t = 'smartphone'
-      elsif os.full_version >= '3' && os.full_version < '4'
-        t = 'tablet'
+    if t.nil? && os.short_name == 'AND'.freeze && os.full_version && !os.full_version.empty?
+      if os.full_version < '2'.freeze
+        t = 'smartphone'.freeze
+      elsif os.full_version >= '3'.freeze && os.full_version < '4'.freeze
+        t = 'tablet'.freeze
       end
     end
 
     # All detected feature phones running android are more likely a smartphone
-    if t == 'feature phone' && os.family == 'Android'
-      t = 'smartphone'
+    if t == 'feature phone'.freeze && os.family == 'Android'.freeze
+      t = 'smartphone'.freeze
     end
 
     # According to http://msdn.microsoft.com/en-us/library/ie/hh920767(v=vs.85).aspx
@@ -83,14 +83,14 @@ class DeviceDetector
     # As most touch enabled devices are tablets and only a smaller part are desktops/notebooks we assume that
     # all Windows 8 touch devices are tablets.
     if t.nil? && touch_enabled? &&
-       (os.short_name == 'WRT' || (os.short_name == 'WIN' && os.full_version && os.full_version >= '8'))
-      t = 'tablet'
+       (os.short_name == 'WRT'.freeze || (os.short_name == 'WIN'.freeze && os.full_version && os.full_version >= '8'.freeze))
+      t = 'tablet'.freeze
     end
 
     # set device type to desktop for all devices running a desktop os that were
     # not detected as an other device type
-    if t.nil? && os.desktop? && !puffin_browser?
-      t = 'desktop'
+    if t.nil? && os.desktop?
+      t = 'desktop'.freeze
     end
 
     t
@@ -104,11 +104,6 @@ class DeviceDetector
 
     def cache
       @cache ||= RegexCache.new()
-    end
-
-    def configure(&block)
-      @config = Configuration.new
-      yield(config)
     end
 
   end
@@ -128,24 +123,19 @@ class DeviceDetector
   end
 
   def android_tablet_fragment?
-    user_agent =~ build_regex('Android; Tablet;')
+    user_agent =~ build_regex('Android; Tablet;'.freeze)
   end
 
   def android_mobile_fragment?
-    user_agent =~ build_regex('Android; Mobile;')
+    user_agent =~ build_regex('Android; Mobile;'.freeze)
   end
 
   def touch_enabled?
-    user_agent =~ build_regex('Touch')
+    user_agent =~ build_regex('Touch'.freeze)
   end
 
   def opera_tablet?
-    user_agent =~ build_regex('Opera Tablet')
-  end
-
-  # This is a workaround until we support detecting mobile only browsers
-  def puffin_browser?
-    client.name == 'Puffin'
+    user_agent =~ build_regex('Opera Tablet'.freeze)
   end
 
   def build_regex(src)

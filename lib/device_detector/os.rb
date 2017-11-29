@@ -20,7 +20,7 @@ class DeviceDetector
     end
 
     def full_version
-      raw_version = super.to_s.split('_').join('.')
+      raw_version = super.to_s.split('_'.freeze).join('.'.freeze)
       raw_version == '' ? nil : raw_version
     end
 
@@ -31,7 +31,7 @@ class DeviceDetector
       if os_name && short = DOWNCASED_OPERATING_SYSTEMS[os_name.downcase]
         os_name = OPERATING_SYSTEMS[short]
       else
-        short = 'UNK'
+        short = 'UNK'.freeze
       end
       { name: os_name, short: short, family: FAMILY_TO_OS[short] }
     end
@@ -152,7 +152,7 @@ class DeviceDetector
     end
 
     def filenames
-      ['oss.yml']
+      ['oss.yml'.freeze]
     end
 
   end

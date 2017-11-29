@@ -1,17 +1,6 @@
 class DeviceDetector
   class Device < Parser
 
-    # order is relevant for testing with fixtures
-    DEVICE_NAMES = [
-        'desktop',
-        'smartphone',
-        'tablet',
-        'feature phone',
-        'smart display', ## TBD: What is smart display?
-        'portable media player',
-        'phablet'
-    ]
-
     def known?
       regex_meta.any?
     end
@@ -40,8 +29,7 @@ class DeviceDetector
     end
 
     def matching_regex
-      regex_list = regexes.select { |r| r[:path] != :'device/televisions.yml' }
-      regex = regex_list.find { |r| user_agent =~ r[:regex] }
+      regex = regexes.find { |r| user_agent =~ r[:regex] }
       if regex && regex[:models]
         model_regex = regex[:models].find { |m| user_agent =~ m[:regex]}
         if model_regex
