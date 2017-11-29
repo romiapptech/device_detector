@@ -7,11 +7,7 @@ class DeviceDetector
         'smartphone',
         'tablet',
         'feature phone',
-        'console',
-        'tv',
-        'car browser',
-        'smart display',
-        'camera',
+        'smart display', ## TBD: What is smart display?
         'portable media player',
         'phablet'
     ]
@@ -25,7 +21,7 @@ class DeviceDetector
     end
 
     def type
-      hbbtv? ? 'tv' : regex_meta[:device]
+      regex_meta[:device]
     end
 
     def brand
@@ -38,17 +34,13 @@ class DeviceDetector
     # parser classes used in the piwik project.
     def filenames
       [
-        'device/televisions.yml',
-        'device/consoles.yml',
-        'device/car_browsers.yml',
-        'device/cameras.yml',
         'device/portable_media_player.yml',
         'device/mobiles.yml',
       ]
     end
 
     def matching_regex
-      regex_list = hbbtv? ? regexes_for_hbbtv : regexes_other
+      regex_list = regexes.select { |r| r[:path] != :'device/televisions.yml' }
       regex = regex_list.find { |r| user_agent =~ r[:regex] }
       if regex && regex[:models]
         model_regex = regex[:models].find { |m| user_agent =~ m[:regex]}
@@ -59,19 +51,6 @@ class DeviceDetector
         end
       end
       regex
-    end
-
-    def hbbtv?
-      @regex_hbbtv ||= build_regex('HbbTV/([1-9]{1}(?:\.[0-9]{1}){1,2})')
-      user_agent =~ @regex_hbbtv
-    end
-
-    def regexes_for_hbbtv
-      regexes.select { |r| r[:path] == :'device/televisions.yml' }
-    end
-
-    def regexes_other
-      regexes.select { |r| r[:path] != :'device/televisions.yml' }
     end
 
     def parse_regexes(path, raw_regexes)

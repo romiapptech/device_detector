@@ -2,7 +2,7 @@ class DeviceDetector
   class RegexCache
     attr_reader :data
 
-    def initialize(_config)
+    def initialize()
       @data = {}
     end
 

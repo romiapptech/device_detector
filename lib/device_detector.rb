@@ -7,7 +7,6 @@ require_relative './device_detector/model_extractor'
 require_relative './device_detector/name_extractor'
 require_relative './device_detector/regex_cache'
 require_relative './device_detector/parser'
-require_relative './device_detector/bot'
 require_relative './device_detector/client'
 require_relative './device_detector/device'
 require_relative './device_detector/os'
@@ -88,14 +87,6 @@ class DeviceDetector
       t = 'tablet'
     end
 
-    if opera_tv_store?
-      t = 'tv'
-    end
-
-    if t.nil? && ['Kylo', 'Espial TV Browser'].include?(client.name)
-      t = 'tv'
-    end
-
     # set device type to desktop for all devices running a desktop os that were
     # not detected as an other device type
     if t.nil? && os.desktop? && !puffin_browser?
@@ -109,32 +100,10 @@ class DeviceDetector
     client.known?
   end
 
-  def bot?
-    bot.bot?
-  end
-
-  def bot_name
-    bot.name
-  end
-
   class << self
 
-    class Configuration
-      def max_cache_keys=(_value)
-        puts "The config max_cache_keys is deprecated and has no effect."
-      end
-
-      def to_hash
-        {}
-      end
-    end
-
-    def config
-      @config ||= Configuration.new
-    end
-
     def cache
-      @cache ||= RegexCache.new(config.to_hash)
+      @cache ||= RegexCache.new()
     end
 
     def configure(&block)
@@ -145,10 +114,6 @@ class DeviceDetector
   end
 
   private
-
-  def bot
-    @bot ||= Bot.new(user_agent)
-  end
 
   def client
     @client ||= Client.new(user_agent)
@@ -172,10 +137,6 @@ class DeviceDetector
 
   def touch_enabled?
     user_agent =~ build_regex('Touch')
-  end
-
-  def opera_tv_store?
-    user_agent =~ build_regex('Opera TV Store')
   end
 
   def opera_tablet?
