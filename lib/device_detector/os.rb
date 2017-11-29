@@ -7,6 +7,10 @@ class DeviceDetector
       os_info[:name]
     end
 
+    def short_name
+      os_info[:short]
+    end
+
     def family
       os_info[:family]
     end
@@ -17,23 +21,20 @@ class DeviceDetector
 
     def full_version
       raw_version = super.to_s.split('_'.freeze).join('.'.freeze)
-      raw_version == ''.freeze ? nil : raw_version
+      raw_version == '' ? nil : raw_version
     end
 
     private
 
     def os_info
       os_name = NameExtractor.new(user_agent, regex_meta).call
-      os_name.downcase!
-      if os_name && !short = DOWNCASED_OPERATING_SYSTEMS[os_name.downcase!]
-        short = 'UNK'.freeze
-      end
-      { name: os_name, family: FAMILY_TO_OS[short] }
+      short = DOWNCASED_OPERATING_SYSTEMS[os_name.downcase!] if os_name
+      short = 'UNK'.freeze if short == nil
+      { name: os_name, short: short, family: FAMILY_TO_OS[short] }
     end
 
     DESKTOP_OSS = Set.new(['AmigaOS', 'IBM', 'GNU/Linux', 'Mac', 'Unix', 'Windows', 'BeOS', 'Chrome OS'])
 
-    ## No added value
     # OS short codes mapped to long names
     # OPERATING_SYSTEMS = {
     #     'AIX' => 'AIX',
